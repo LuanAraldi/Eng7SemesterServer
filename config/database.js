@@ -1,4 +1,4 @@
 module.exports = {
     'secret': 'senhasupersecretaparajson',
-    'url': 'mongodb://localhost/sigma'
+    'url': MONGODB_URI
 };
