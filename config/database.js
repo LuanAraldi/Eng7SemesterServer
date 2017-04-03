@@ -1,4 +1,4 @@
 module.exports = {
     'secret': 'senhasupersecretaparajson',
-    'url': MONGODB_URI
+    'url': process.env.MONGODB_URI
 };
