@@ -1,5 +1,6 @@
 require('newrelic');
 var express  = require('express');
+var cors     = require('cors');
 var app      = express();
 var port     = process.env.PORT || 8080;
 var mongoose = require('mongoose');
@@ -23,7 +24,7 @@ app.use(bodyParser.json());
 
 app.set('view engine', 'ejs');
 
-app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.use(session({ secret: 'senhasuperincrivelmentesecreta' })); // session secret
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -32,4 +33,4 @@ require('./config/routes.js')(app, passport);
 
 // launch ======================================================================
 app.listen(port);
-console.log('The magic happens on port ' + port);
+console.log('A magia acontece na porta ' + port);
