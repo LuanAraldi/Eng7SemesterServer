@@ -14,6 +14,11 @@ var session      = require('express-session');
 
 var configDB = require('./config/database.js');
 
+var corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
 mongoose.connect(configDB.url);
 
 require('./config/passport')(passport);

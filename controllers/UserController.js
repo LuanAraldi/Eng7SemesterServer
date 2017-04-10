@@ -1,7 +1,6 @@
 var User = require('./../models/user');
 
 module.exports = {
-
     retrieveId: function (req, res) {
         res.setHeader('Content-Type', 'application/json');
         User.find({'_id' : req.params.id}).lean().exec().then(function (user) {
