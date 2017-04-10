@@ -2,7 +2,7 @@ require('newrelic');
 var express  = require('express');
 var cors     = require('cors');
 var app      = express();
-app.user(cors());
+app.use(cors());
 var port     = process.env.PORT || 8080;
 var mongoose = require('mongoose');
 var passport = require('passport');
@@ -14,11 +14,6 @@ var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
 var configDB = require('./config/database.js');
-
-var corsOptions = {
-    origin: 'http://localhost:3000',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
 
 mongoose.connect(configDB.url);
 
