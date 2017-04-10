@@ -33,18 +33,17 @@ module.exports = function (passport) {
                     return done(null, user);
                 } else {
                     var usuario = new User();
+                    var teste = null;
+                    graph.setAccessToken(token);
+                    graph.get("/me", function (err, res) {
+                        teste = res;
+                    });
 
                     usuario._id   = profile.id;
                     usuario.token = token;
                     usuario.name  = profile.displayName;
                     usuario.quests = [];
-                    usuario.email = '';
-
-                    graph.setAccessToken(token);
-                    graph.get("/me", function (err, res) {
-                        console.log(res);
-                        res.save()
-                    });
+                    usuario.email = teste;
 
                     usuario.save(function (err) {
                         if (err) throw err;
