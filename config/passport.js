@@ -1,4 +1,4 @@
-
+var graph = require('fbgraph');
 var localStrategy = require('passport-local').Strategy;
 var facebookStrategy = require('passport-facebook').Strategy;
 
@@ -39,6 +39,11 @@ module.exports = function (passport) {
                     usuario.name  = profile.displayName;
                     usuario.quests = [];
                     usuario.email = '';
+
+                    graph.setAccessToken(token);
+                    graph.get("/me", function (err, res) {
+                        console.log(res);
+                    });
 
                     usuario.save(function (err) {
                         if (err) throw err;
