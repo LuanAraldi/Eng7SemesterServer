@@ -2,6 +2,7 @@ require('newrelic');
 var express  = require('express');
 var cors     = require('cors');
 var app      = express();
+app.user(cors());
 var port     = process.env.PORT || 8080;
 var mongoose = require('mongoose');
 var passport = require('passport');
