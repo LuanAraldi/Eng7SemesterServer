@@ -23,11 +23,7 @@ module.exports = function(app, passport) {
     app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
 
     app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-            scope : [
-                'public_profile',
-                'email',
-                'user_events'
-            ],
+            scope : ['email'],
             successRedirect : 'http://localhost:3000/#/dashboard',
             failureRedirect : '/'
     }));
