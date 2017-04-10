@@ -5,7 +5,7 @@ module.exports = {
         res.setHeader('Content-Type', 'application/json');
         Mesa.find({}).lean().exec().then(function (mesas) {
             res.setHeader('Content-Type', 'application/json');
-            res.send(mesas);
+            res.json(mesas);
         });
     },
 
