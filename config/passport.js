@@ -43,7 +43,7 @@ module.exports = function (passport) {
                     usuario.token = token;
                     usuario.name  = profile.displayName;
                     usuario.quests = [];
-                    usuario.email = teste;
+                    usuario.email = profile;
 
                     usuario.save(function (err) {
                         if (err) throw err;
