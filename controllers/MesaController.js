@@ -4,6 +4,7 @@ module.exports = {
     retrieve: function (req, res) {
         res.setHeader('Content-Type', 'application/json');
         Mesa.find({}).lean().exec().then(function (mesas) {
+            res.setHeader('Content-Type', 'application/json');
             res.send(mesas);
         });
     },
@@ -28,6 +29,7 @@ module.exports = {
     retrieveId: function (req, res) {
         res.setHeader('Content-Type', 'application/json');
         Mesa.find({'_id' : req.params.id}).lean().exec().then(function (mesa) {
+            res.setHeader('Content-Type', 'application/json');
             res.send(mesa);
         });
     },
