@@ -6,6 +6,9 @@ var userSchema = mongoose.Schema({
     token: String,
     email: String,
     nome: String,
+    foto: Object,
+    linkbio: String,
+    sexo: String,
     quests: [String]
 });
 
