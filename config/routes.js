@@ -3,7 +3,7 @@ var QuestController    = require('./../controllers/QuestController');
 var LocalController    = require('./../controllers/LocalController');
 var CampanhaController = require('./../controllers/CampanhaController');
 var MesaController     = require('./../controllers/MesaController');
-
+var reactCookie = require('react-cookie');
 module.exports = function(app, passport) {
 
     app.all('/', function(req, res, next) {
@@ -23,9 +23,12 @@ module.exports = function(app, passport) {
     app.get('/auth/facebook', passport.authenticate('facebook', { scope : ['email', 'public_profile'] }));
 
     app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-            successRedirect : 'http://localhost:3000/#/dashboard',
             failureRedirect : '/'
-    }));
+    }), function (req, res) {
+        reactCookie.plugToRequest(req, res);
+        console.log(res)
+        res.redirect('http://localhost:3000')
+    });
 
     app.get('/logout', function(req, res) {
         req.logout();
