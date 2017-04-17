@@ -27,7 +27,7 @@ module.exports = function(app, passport) {
     }), function (req, res) {
         reactCookie.plugToRequest(req, res);
         console.log(res)
-        res.redirect('http://localhost:3000/')
+        res.redirect('http://localhost:3000/#/Dashboard')
     });
 
     app.get('/logout', function(req, res) {
