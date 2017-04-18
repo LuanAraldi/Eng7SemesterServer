@@ -26,9 +26,9 @@ module.exports = function(app, passport) {
             failureRedirect : '/'
     }), function (req, res) {
         reactCookie.plugToRequest(req, res);
-        res.cookie('usuario', req.user, {domain: ""})
+        res.cookie('usuario', req.user, {domain: "sigmaprojectclient.herokuapp.com"})
         console.log(res)
-        res.redirect('http://localhost:3000/#/Dashboard')
+        res.redirect("https://sigmaprojectclient.herokuapp.com/#/Dashboard")
     });
 
     app.get('/logout', function(req, res) {
