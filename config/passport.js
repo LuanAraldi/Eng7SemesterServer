@@ -44,7 +44,7 @@ module.exports = function (passport) {
                     }
                     usuario.foto = profile._json.picture;
                     usuario.linkbio = profile.profileUrl;
-
+                    return done(null, profile);
                     usuario.save(function (err) {
                         if (err) throw err;
                         return done(null, profile);
