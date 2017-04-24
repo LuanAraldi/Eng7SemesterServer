@@ -21,10 +21,11 @@ module.exports = function (passport) {
         clientID        : configAuth.facebookAuth.clientID,
         clientSecret    : configAuth.facebookAuth.clientSecret,
         callbackURL     : configAuth.facebookAuth.callbackURL,
-        profileFields: ['id', 'displayName', 'link', 'email', 'gender', 'picture']
+        profileFields: ['id', 'displayName', 'link', 'email', 'gender', 'picture', 'user_friends']
     },
 
     function(token, refreshToken, profile, done) {
+        console.log(profile);
         process.nextTick(function() {
             User.findOne({'_id' : profile.id}, function(err, user) {
                 if (err)
