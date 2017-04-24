@@ -28,7 +28,7 @@ module.exports = function(app, passport) {
         reactCookie.plugToRequest(req, res);
         res.cookie('usuario', req.user, {domain: "sigmaprojectclient.herokuapp.com"})
         var retorno = req;
-        res.send(retorno);
+        res.send(JSON.stringify(retorno));
         //res.redirect("https://sigmaprojectclient.herokuapp.com/#/Dashboard")
     });
 
