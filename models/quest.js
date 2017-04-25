@@ -2,13 +2,19 @@ var mongoose = require('mongoose');
 
 var questSchema = mongoose.Schema({
     criador      : String,
-    local        : String,
+    local        : {
+        latitude  : String,
+        longitude : String
+    },
     nome         : String,
     subtitulo    : String,
     descricao    : String,
     visibilidade : String,
     objetivos    : [{
-        local : String,
+        local : {
+            latitude  : String,
+            longitude : String
+        },
         estagio : Number,
         titulo : String,
         descricao : String

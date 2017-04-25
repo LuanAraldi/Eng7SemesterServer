@@ -1,5 +1,4 @@
 var Quest = require('./../models/quest');
-var Local = require('./../models/local');
 
 module.exports = {
     retrieve: function (req, res) {
@@ -32,13 +31,8 @@ module.exports = {
 
     retrieveId: function (req, res) {
         res.setHeader('Content-Type', 'application/json');
-        var questComLocal = {};
-        Quest.find({'_id' : req.params.id}).lean().exec().then(function (quest) {
-            questComLocal = quest;
-            Local.find({'_id' : quest.local}).lean().exec().then(function (local) {
-                questComLocal.local = local;
-                res.send(questComLocal);
-            })
+        Quest.findOne({'_id' : req.params.id}).lean().exec().then(function (quest) {
+            res.send(quest);
         });
     },
 
