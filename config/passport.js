@@ -37,6 +37,7 @@ module.exports = function (passport) {
                     usuario.token = token;
                     usuario.name  = profile.displayName;
                     usuario.quests = [];
+                    usuario.amigos = [];
                     usuario.email = profile.email;
                     usuario.sexo = 'Masculino';
                     if (profile.gender == 'female') {

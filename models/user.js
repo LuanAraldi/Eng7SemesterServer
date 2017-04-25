@@ -9,7 +9,8 @@ var userSchema = mongoose.Schema({
     foto: Object,
     linkbio: String,
     sexo: String,
-    quests: [String]
+    quests: [String],
+    amigos: [String]
 });
 
 module.exports = mongoose.model('User', userSchema);

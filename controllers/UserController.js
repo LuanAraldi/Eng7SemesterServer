@@ -16,5 +16,15 @@ module.exports = {
                 res.status(200).send('Quest aceita com sucesso');
             }
         );
+    },
+
+    addFriend: function (req, res) {
+        User.findByIdAndUpdate(req.params.id, {$push: {"amigos": req.body.friend}},
+            {safe: true, upsert: true, new : true},
+            function(err, user) {
+                if (err) res.status(500).send('Ocorreu problema ao adicionar o amigo');
+                res.status(200).send('Amigo adicionado com sucesso');
+            }
+        );
     }
 };

@@ -49,6 +49,10 @@ module.exports = function(app, passport) {
         UserController.addQuest(req, res);
     });
 
+    app.post('/api/user/:id/addfriend', function (req, res) {
+        UserController.addFriend(req, res);
+    });
+
     // Quests
     app.get('/api/quests', function(req, res) {
         QuestController.retrieve(req, res);
