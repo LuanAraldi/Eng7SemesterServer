@@ -31,23 +31,32 @@ Nova quest POST
 
     {
 		"criador" : "iddousuariocriador",
-		"local" : "iddolocal",
+		"local" : {
+			latitude  : "-26.92088827",
+			longitude : "-48.65585883"
+		},
 		"nome" : "nome da quest",
 		"subtitulo" : "subtitulo da quest",
 		"descricao" : "descricao da quest",
 		"visibilidade" : "privada ou publica",
 		"objetivos" : [
 		{
-			"local" 	: "iddolocal",
-	        "estagio"   : 1,
-	        "titulo"	: "titulo do objetivo",
-	        "descricao" : "descricao do objetivo"
+		    "local" 	: {
+			latitude  : "-26.92088547",
+			longitude : "-48.66885883"
+		    },
+	            "estagio"   : 1,
+	            "titulo"	: "titulo do objetivo",
+	            "descricao" : "descricao do objetivo"
 		},
 		{
-			"local" 	: "iddolocal",
-	        "estagio"   : 2,
-	        "titulo"	: "titulo do objetivo",
-	        "descricao" : "descricao do objetivo"
+		    "local" 	: {
+			latitude  : "-26.92088547",
+			longitude : "-48.66885883"
+		    },
+	            "estagio"   : 2,
+	            "titulo"	: "titulo do objetivo",
+	            "descricao" : "descricao do objetivo"
 		}
 		]
 	}
@@ -57,23 +66,32 @@ Editar quest PATCH
 
     {
 		"criador" : "iddousuariocriador",
-		"local" : "iddolocal",
+		"local" : {
+			latitude  : "-26.92088827",
+			longitude : "-48.65585883"
+		},
 		"nome" : "nome da quest",
 		"subtitulo" : "subtitulo da quest",
 		"descricao" : "descricao da quest",
 		"visibilidade" : "privada ou publica",
 		"objetivos" : [
 		{
-			"local" 	: "iddolocal",
-	        "estagio"   : 1,
-	        "titulo"	: "titulo do objetivo",
-	        "descricao" : "descricao do objetivo"
+		    "local" 	: {
+			latitude  : "-26.92088547",
+			longitude : "-48.66885883"
+		    },
+	            "estagio"   : 1,
+	            "titulo"	: "titulo do objetivo",
+	            "descricao" : "descricao do objetivo"
 		},
 		{
-			"local" 	: "iddolocal",
-	        "estagio"   : 2,
-	        "titulo"	: "titulo do objetivo",
-	        "descricao" : "descricao do objetivo"
+		    "local" 	: {
+			latitude  : "-26.92088547",
+			longitude : "-48.66885883"
+		    },
+	            "estagio"   : 2,
+	            "titulo"	: "titulo do objetivo",
+	            "descricao" : "descricao do objetivo"
 		}
 		]
 	}
