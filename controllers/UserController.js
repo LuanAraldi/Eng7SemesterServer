@@ -45,14 +45,14 @@ module.exports = {
             user.amigos = [];
             user.email = request.email;
             user.sexo = 'Masculino';
-            if (request.sexo == 'female') {
+            if (request.sexo  == 'female') {
                 user.sexo = 'Feminino';
             }
             user.foto = request.foto;
             user.linkbio = request.linkbio;
 
             user.save(function (err) {
-                if (err) res.status(500).send('Ocorreu problema ao gravar a quest');
+                if (err) res.status(500).send('Ocorreu problema ao gravar o usuario');
                 res.status(200).send(user);
             });
         });
