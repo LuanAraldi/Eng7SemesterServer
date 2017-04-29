@@ -14,9 +14,26 @@ Relaciona uma quest ao usuário POST
 > /api/user/:id/addquest
 
 
-    {
-		"quest" : "iddaquest"
+        {
+		"quest"  : profile.id,
+		"token"  : token,
+		"name"   : profile.displayName,
+		"quests" : [],
+		"amigos" : [],
+		"email"  : profile.email,
+		"sexo"   : profile.gender,
+		"foto"   : profile._json.picture,
+		"linkbio": profile.profileUrl
 	}
+
+Cria um novo usuário POST
+> /api/user/new
+
+
+        {
+		"_id" : "iddaquest"
+	}
+
 
 ## Quests ##
 
