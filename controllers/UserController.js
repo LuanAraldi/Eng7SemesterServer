@@ -31,23 +31,30 @@ module.exports = {
     new: function (req, res) {
         var user = new User();
         var request = req.body;
+        User.findOne({'_id' : request._id}, function(err, user) {
+            if (err) {
+                return err;
+            }
+            if (user) {
+                return user;
+            }
+            user._id   = request._id;
+            user.token = request.token;
+            user.name  = request.name;
+            user.quests = [];
+            user.amigos = [];
+            user.email = request.email;
+            user.sexo = 'Masculino';
+            if (request.sexo == 'female') {
+                user.sexo = 'Feminino';
+            }
+            user.foto = request.foto;
+            user.linkbio = request.linkbio;
 
-        user._id   = profile.id;
-        user.token = token;
-        user.name  = profile.displayName;
-        user.quests = [];
-        user.amigos = [];
-        user.email = profile.email;
-        user.sexo = 'Masculino';
-        if (request.gender == 'female') {
-            user.sexo = 'Feminino';
-        }
-        user.foto = profile._json.picture;
-        user.linkbio = profile.profileUrl;
-
-        user.save(function (err) {
-            if (err) res.status(500).send('Ocorreu problema ao gravar a quest');
-            res.status(200).send(user);
+            user.save(function (err) {
+                if (err) res.status(500).send('Ocorreu problema ao gravar a quest');
+                res.status(200).send(user);
+            });
         });
     }
 };
