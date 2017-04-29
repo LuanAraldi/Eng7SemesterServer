@@ -14,7 +14,7 @@ Cria um novo usuário POST
 > /api/user/new
 
         {
-		"quest"  : profile.id,
+		"_id"  : profile.id,
 		"token"  : token,
 		"name"   : profile.displayName,
 		"quests" : [],
@@ -29,7 +29,7 @@ Relaciona uma quest ao usuário POST
 > /api/user/:id/addquest
 
         {
-		"_id" : "iddaquest"
+		"quest" : "iddaquest"
 	}
 
 
