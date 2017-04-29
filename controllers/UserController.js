@@ -26,5 +26,28 @@ module.exports = {
                 res.status(200).send('Amigo adicionado com sucesso');
             }
         );
+    },
+
+    new: function (req, res) {
+        var user = new User();
+        var request = req.body;
+
+        user._id   = profile.id;
+        user.token = token;
+        user.name  = profile.displayName;
+        user.quests = [];
+        user.amigos = [];
+        user.email = profile.email;
+        user.sexo = 'Masculino';
+        if (request.gender == 'female') {
+            user.sexo = 'Feminino';
+        }
+        user.foto = profile._json.picture;
+        user.linkbio = profile.profileUrl;
+
+        user.save(function (err) {
+            if (err) res.status(500).send('Ocorreu problema ao gravar a quest');
+            res.status(200).send(user);
+        });
     }
 };

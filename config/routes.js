@@ -41,6 +41,10 @@ module.exports = function(app, passport) {
         });
     });
 
+    app.post('/api/user/new', function (req, res) {
+       UserController.new(req, res);
+    });
+
     app.get('/api/user/:id', function (req, res) {
        UserController.retrieveId(req, res);
     });
