@@ -10,9 +10,8 @@ Realiza login com facebook GET
 Busca dados do usuário GET
 > /api/user/:id
 
-Relaciona uma quest ao usuário POST
-> /api/user/:id/addquest
-
+Cria um novo usuário POST
+> /api/user/new
 
         {
 		"quest"  : profile.id,
@@ -26,9 +25,8 @@ Relaciona uma quest ao usuário POST
 		"linkbio": profile.profileUrl
 	}
 
-Cria um novo usuário POST
-> /api/user/new
-
+Relaciona uma quest ao usuário POST
+> /api/user/:id/addquest
 
         {
 		"_id" : "iddaquest"
