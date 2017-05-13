@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
+require('./user');
 
 var questSchema = mongoose.Schema({
-    criador      : String,
+    criador      : {type : String, ref: 'User'},
     local        : {
         latitude  : String,
         longitude : String

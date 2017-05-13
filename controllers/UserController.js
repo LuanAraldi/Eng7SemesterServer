@@ -3,7 +3,11 @@ var User = require('./../models/user');
 module.exports = {
     retrieveId: function (req, res) {
         res.setHeader('Content-Type', 'application/json');
-        User.find({'_id' : req.params.id}).lean().exec().then(function (user) {
+        User.find({'_id' : req.params.id})
+            .populate(['quests', 'amigos'])
+            .lean()
+            .exec()
+            .then(function (user) {
             res.send(user);
         });
     },

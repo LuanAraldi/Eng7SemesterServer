@@ -29,7 +29,11 @@ module.exports = {
 
     retrieveId: function (req, res) {
         res.setHeader('Content-Type', 'application/json');
-        Campanha.find({'_id' : req.params.id}).lean().exec().then(function (campanha) {
+        Campanha.find({'_id' : req.params.id})
+            .populate(['quests','usuarios'])
+            .lean()
+            .exec()
+            .then(function (campanha) {
             res.send(campanha);
         });
     },

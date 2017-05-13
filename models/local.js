@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+require('./user');
 
 var localSchema = mongoose.Schema({
     nome          : String,
@@ -6,7 +7,7 @@ var localSchema = mongoose.Schema({
         latitude  : String,
         longitude : String
     },
-    mestre        : String,
+    mestre        : { type: String, ref: 'User' },
     createdAt     : { type: Date, default: Date.now },
     updatedAt     : { type: Date, default: Date.now }
 });
