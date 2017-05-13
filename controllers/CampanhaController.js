@@ -27,10 +27,17 @@ module.exports = {
 
     },
 
-    retrieveId: function (req, res) {
+   retrieveId: function (req, res) {
         res.setHeader('Content-Type', 'application/json');
         Campanha.find({'_id' : req.params.id}).lean().exec().then(function (campanha) {
+            for (var idQuest in campanha.quest) {
+                Quest.find({'_id': idQuest}).lean().exec().then(function (questSelecionada){
+                    var questsCampanha[] = questSelecionada;
+                });
+            }
+            campanha.quests = questsCampanha;
             res.send(campanha);
+
         });
     },
 
