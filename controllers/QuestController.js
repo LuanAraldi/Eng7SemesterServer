@@ -31,7 +31,11 @@ module.exports = {
 
     retrieveId: function (req, res) {
         res.setHeader('Content-Type', 'application/json');
-        Quest.findOne({'_id' : req.params.id}).lean().exec().then(function (quest) {
+        Quest.findOne({'_id' : req.params.id})
+            .populate('criador')
+            .lean()
+            .exec()
+            .then(function (quest) {
             res.send(quest);
         });
     },

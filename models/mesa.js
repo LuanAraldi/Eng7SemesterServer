@@ -1,9 +1,10 @@
 var mongoose = require('mongoose');
+require('./user');
 
 var mesaSchema = mongoose.Schema({
     nome : String,
     descricao : String,
-    usuarios : [String],
+    usuarios : [{ type : String, ref : 'User' }],
     createdAt : Date,
     updatedAt : Date
 });

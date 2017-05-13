@@ -28,7 +28,11 @@ module.exports = {
 
     retrieveId: function (req, res) {
         res.setHeader('Content-Type', 'application/json');
-        Local.find({'_id' : req.params.id}).lean().exec().then(function (locais) {
+        Local.find({'_id' : req.params.id})
+            .populate('mestre')
+            .lean()
+            .exec()
+            .then(function (locais) {
             res.send(locais);
         });
     },
